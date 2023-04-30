@@ -5,8 +5,8 @@ from enums import Player
 import game_states_for_tests
 
 my_chess_ai = chess_ai()
-my_game_state1= game_states_for_tests.my_game_state7
-my_game_state2 = game_states_for_tests.my_game_state6
+my_game_state1 = game_states_for_tests.my_game_state5
+my_game_state2 = game_states_for_tests.my_game_state4
 
 
 class EvaluateBoardTestCase(unittest.TestCase):

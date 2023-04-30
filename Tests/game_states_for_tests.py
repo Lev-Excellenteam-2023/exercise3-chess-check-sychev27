@@ -23,29 +23,8 @@ my_game_state2 = game_state()
 my_game_state3 = game_state()
 my_game_state4 = game_state()
 my_game_state5 = game_state()
-my_game_state6 = game_state()
-my_game_state7 = game_state()
 
 my_game_state1.board = [
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, my_knight1, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY]
-]
-
-my_game_state2.board = [
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
      Player.EMPTY],
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
@@ -64,7 +43,7 @@ my_game_state2.board = [
      Player.EMPTY]
 ]
 
-my_game_state3.board = [
+my_game_state2.board = [
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
      Player.EMPTY],
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
@@ -83,26 +62,7 @@ my_game_state3.board = [
      Player.EMPTY]
 ]
 
-my_game_state4.board = [
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, my_rook1, Player.EMPTY, my_bishop1, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, my_rook2, Player.EMPTY, Player.EMPTY, Player.EMPTY, my_bishop2,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, my_knight1, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, my_queen1, Player.EMPTY, Player.EMPTY, Player.EMPTY, my_pawn2,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, my_queen2, Player.EMPTY, my_pawn1, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY],
-    [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
-     Player.EMPTY]
-]
-
-my_game_state5.board = [
+my_game_state3.board = [
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
      Player.EMPTY],
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
@@ -121,7 +81,7 @@ my_game_state5.board = [
      Player.EMPTY]
 ]
 
-my_game_state6.board = [
+my_game_state4.board = [
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
      Player.EMPTY],
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, my_bishop3,
@@ -140,7 +100,7 @@ my_game_state6.board = [
      Player.EMPTY]
 ]
 
-my_game_state7.board = [
+my_game_state5.board = [
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY, Player.EMPTY,
      Player.EMPTY],
     [Player.EMPTY, Player.EMPTY, Player.EMPTY, my_rook4, Player.EMPTY, my_bishop1, Player.EMPTY,
