@@ -9,7 +9,9 @@ import chess_engine
 import pygame as py
 
 import ai_engine
+import loggs
 from enums import Player
+
 
 """Variables"""
 WIDTH = HEIGHT = 512  # width and height of the chess board
@@ -86,6 +88,10 @@ def highlight_square(screen, game_state, valid_moves, square_selected):
 
 
 def main():
+    num_of_white_knight_move = 0
+    num_of_black_knight_move = 0
+    num_of_checks = 0
+    loggs.log_of_game_begining()  # LOG
     # Check for the number of players and the color of the AI
     human_player = ""
     while True:
@@ -95,7 +101,7 @@ def main():
                 number_of_players = 1
                 while True:
                     human_player = input("What color do you want to play (w or b)?\n")
-                    if human_player is "w" or human_player is "b":
+                    if human_player == "w" or human_player == "b":
                         break
                     else:
                         print("Enter w or b.\n")
@@ -121,9 +127,14 @@ def main():
 
     ai = ai_engine.chess_ai()
     game_state = chess_engine.game_state()
-    if human_player is 'b':
+    loggs.log_for_current_pieces(game_state)   # LOG
+    if human_player == 'b':
         ai_move = ai.minimax_black(game_state, 3, -100000, 100000, True, Player.PLAYER_1)
+        num_of_white_knight_move, num_of_black_knight_move = loggs.log_for_knight_move(game_state.get_piece(ai_move[0][0], ai_move[0][1]),  # LOG
+                                                                                 num_of_white_knight_move, num_of_black_knight_move)
         game_state.move_piece(ai_move[0], ai_move[1], True)
+        loggs.log_for_current_pieces(game_state)  # LOG
+    loggs.log_for_who_started(number_of_players, human_player)  # LOG
 
     while running:
         for e in py.event.get():
@@ -147,18 +158,32 @@ def main():
                             player_clicks = []
                             valid_moves = []
                         else:
+                            moving_piece = game_state.get_piece(player_clicks[0][0], player_clicks[0][1])
+                            num_of_white_knight_move, num_of_black_knight_move = loggs.log_for_knight_move(moving_piece,
+                                                                                                     num_of_white_knight_move,
+                                                                                                     num_of_black_knight_move)  # LOG
                             game_state.move_piece((player_clicks[0][0], player_clicks[0][1]),
                                                   (player_clicks[1][0], player_clicks[1][1]), False)
+                            loggs.log_for_current_pieces(game_state)  # LOG
                             square_selected = ()
                             player_clicks = []
                             valid_moves = []
 
-                            if human_player is 'w':
+                            if human_player == 'w':
                                 ai_move = ai.minimax_white(game_state, 3, -100000, 100000, True, Player.PLAYER_2)
+                                num_of_white_knight_move, num_of_black_knight_move = loggs.log_for_knight_move(game_state.get_piece(ai_move[0][0], ai_move[0][1]),
+                                                                                                         num_of_white_knight_move,
+                                                                                                         num_of_black_knight_move)  # LOG
                                 game_state.move_piece(ai_move[0], ai_move[1], True)
-                            elif human_player is 'b':
+                                loggs.log_for_current_pieces(game_state)  # LOG
+                            elif human_player == 'b':
                                 ai_move = ai.minimax_black(game_state, 3, -100000, 100000, True, Player.PLAYER_1)
+                                num_of_white_knight_move, num_of_black_knight_move = loggs.log_for_knight_move(game_state.get_piece(ai_move[0][0], ai_move[0][1]),
+                                                                                                         num_of_white_knight_move,
+                                                                                                         num_of_black_knight_move)  # LOG
                                 game_state.move_piece(ai_move[0], ai_move[1], True)
+                                loggs.log_for_current_pieces(game_state)  # LOG
+
                     else:
                         valid_moves = game_state.get_valid_moves((row, col))
                         if valid_moves is None:
@@ -181,12 +206,16 @@ def main():
         if endgame == 0:
             game_over = True
             draw_text(screen, "Black wins.")
+            break
         elif endgame == 1:
             game_over = True
             draw_text(screen, "White wins.")
+            break
         elif endgame == 2:
             game_over = True
             draw_text(screen, "Stalemate.")
+            break
+        loggs.log_for_winner(endgame)  # LOG
 
         clock.tick(MAX_FPS)
         py.display.flip()
